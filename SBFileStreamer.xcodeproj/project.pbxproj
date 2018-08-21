@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3ECF30F8876E57670266825F /* libPods-SBFileStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AFC1645B01487C25585E32 /* libPods-SBFileStreamer.a */; };
+		607C7F622127EE9D00AAE520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F612127EE9D00AAE520 /* AppDelegate.m */; };
+		607C7F652127EE9D00AAE520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F642127EE9D00AAE520 /* ViewController.m */; };
+		607C7F682127EE9D00AAE520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607C7F662127EE9D00AAE520 /* Main.storyboard */; };
+		607C7F6A2127EE9E00AAE520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607C7F692127EE9E00AAE520 /* Assets.xcassets */; };
+		607C7F6D2127EE9E00AAE520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607C7F6B2127EE9E00AAE520 /* LaunchScreen.storyboard */; };
+		607C7F702127EE9E00AAE520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F6F2127EE9E00AAE520 /* main.m */; };
+		607C7F7A2127EE9E00AAE520 /* SBFileStreamerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F792127EE9E00AAE520 /* SBFileStreamerTests.m */; };
+		607C7F852127EE9E00AAE520 /* SBFileStreamerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F842127EE9E00AAE520 /* SBFileStreamerUITests.m */; };
+		60CCF944212AE27900396951 /* SBFileStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCF943212AE27900396951 /* SBFileStreamer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607C7F762127EE9E00AAE520 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607C7F552127EE9D00AAE520 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607C7F5C2127EE9D00AAE520;
+			remoteInfo = SBFileStreamer;
+		};
+		607C7F812127EE9E00AAE520 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607C7F552127EE9D00AAE520 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607C7F5C2127EE9D00AAE520;
+			remoteInfo = SBFileStreamer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5951F14A38E47AA49B94B4ED /* Pods-SBFileStreamer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBFileStreamer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SBFileStreamer/Pods-SBFileStreamer.debug.xcconfig"; sourceTree = "<group>"; };
+		607C7F5D2127EE9D00AAE520 /* SBFileStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBFileStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607C7F602127EE9D00AAE520 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		607C7F612127EE9D00AAE520 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		607C7F632127EE9D00AAE520 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		607C7F642127EE9D00AAE520 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		607C7F672127EE9D00AAE520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607C7F692127EE9E00AAE520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		607C7F6C2127EE9E00AAE520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		607C7F6E2127EE9E00AAE520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607C7F6F2127EE9E00AAE520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		607C7F752127EE9E00AAE520 /* SBFileStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBFileStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607C7F792127EE9E00AAE520 /* SBFileStreamerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFileStreamerTests.m; sourceTree = "<group>"; };
+		607C7F7B2127EE9E00AAE520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607C7F802127EE9E00AAE520 /* SBFileStreamerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBFileStreamerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607C7F842127EE9E00AAE520 /* SBFileStreamerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFileStreamerUITests.m; sourceTree = "<group>"; };
+		607C7F862127EE9E00AAE520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60CCF942212AE27900396951 /* SBFileStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBFileStreamer.h; sourceTree = "<group>"; };
+		60CCF943212AE27900396951 /* SBFileStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFileStreamer.m; sourceTree = "<group>"; };
+		A7AFC1645B01487C25585E32 /* libPods-SBFileStreamer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SBFileStreamer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0EB936B219673AF749D7CDD /* Pods-SBFileStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBFileStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SBFileStreamer/Pods-SBFileStreamer.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607C7F5A2127EE9D00AAE520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ECF30F8876E57670266825F /* libPods-SBFileStreamer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F722127EE9E00AAE520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F7D2127EE9E00AAE520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		607C7F542127EE9D00AAE520 = {
+			isa = PBXGroup;
+			children = (
+				607C7F5F2127EE9D00AAE520 /* SBFileStreamer */,
+				607C7F782127EE9E00AAE520 /* SBFileStreamerTests */,
+				607C7F832127EE9E00AAE520 /* SBFileStreamerUITests */,
+				607C7F5E2127EE9D00AAE520 /* Products */,
+				98ADD844564557E9831DDCE6 /* Pods */,
+				8EFDA76550CB9182866888EB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607C7F5E2127EE9D00AAE520 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607C7F5D2127EE9D00AAE520 /* SBFileStreamer.app */,
+				607C7F752127EE9E00AAE520 /* SBFileStreamerTests.xctest */,
+				607C7F802127EE9E00AAE520 /* SBFileStreamerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607C7F5F2127EE9D00AAE520 /* SBFileStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				607C7F922127FFEA00AAE520 /* SBFileStreamer */,
+				607C7F602127EE9D00AAE520 /* AppDelegate.h */,
+				607C7F612127EE9D00AAE520 /* AppDelegate.m */,
+				607C7F632127EE9D00AAE520 /* ViewController.h */,
+				607C7F642127EE9D00AAE520 /* ViewController.m */,
+				607C7F662127EE9D00AAE520 /* Main.storyboard */,
+				607C7F692127EE9E00AAE520 /* Assets.xcassets */,
+				607C7F6B2127EE9E00AAE520 /* LaunchScreen.storyboard */,
+				607C7F6E2127EE9E00AAE520 /* Info.plist */,
+				607C7F6F2127EE9E00AAE520 /* main.m */,
+			);
+			path = SBFileStreamer;
+			sourceTree = "<group>";
+		};
+		607C7F782127EE9E00AAE520 /* SBFileStreamerTests */ = {
+			isa = PBXGroup;
+			children = (
+				607C7F792127EE9E00AAE520 /* SBFileStreamerTests.m */,
+				607C7F7B2127EE9E00AAE520 /* Info.plist */,
+			);
+			path = SBFileStreamerTests;
+			sourceTree = "<group>";
+		};
+		607C7F832127EE9E00AAE520 /* SBFileStreamerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				607C7F842127EE9E00AAE520 /* SBFileStreamerUITests.m */,
+				607C7F862127EE9E00AAE520 /* Info.plist */,
+			);
+			path = SBFileStreamerUITests;
+			sourceTree = "<group>";
+		};
+		607C7F922127FFEA00AAE520 /* SBFileStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				60CCF942212AE27900396951 /* SBFileStreamer.h */,
+				60CCF943212AE27900396951 /* SBFileStreamer.m */,
+			);
+			path = SBFileStreamer;
+			sourceTree = "<group>";
+		};
+		8EFDA76550CB9182866888EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7AFC1645B01487C25585E32 /* libPods-SBFileStreamer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98ADD844564557E9831DDCE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5951F14A38E47AA49B94B4ED /* Pods-SBFileStreamer.debug.xcconfig */,
+				E0EB936B219673AF749D7CDD /* Pods-SBFileStreamer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607C7F5C2127EE9D00AAE520 /* SBFileStreamer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607C7F892127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamer" */;
+			buildPhases = (
+				2B58586A5039C7CBCA310436 /* [CP] Check Pods Manifest.lock */,
+				607C7F592127EE9D00AAE520 /* Sources */,
+				607C7F5A2127EE9D00AAE520 /* Frameworks */,
+				607C7F5B2127EE9D00AAE520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SBFileStreamer;
+			productName = SBFileStreamer;
+			productReference = 607C7F5D2127EE9D00AAE520 /* SBFileStreamer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		607C7F742127EE9E00AAE520 /* SBFileStreamerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607C7F8C2127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamerTests" */;
+			buildPhases = (
+				607C7F712127EE9E00AAE520 /* Sources */,
+				607C7F722127EE9E00AAE520 /* Frameworks */,
+				607C7F732127EE9E00AAE520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607C7F772127EE9E00AAE520 /* PBXTargetDependency */,
+			);
+			name = SBFileStreamerTests;
+			productName = SBFileStreamerTests;
+			productReference = 607C7F752127EE9E00AAE520 /* SBFileStreamerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		607C7F7F2127EE9E00AAE520 /* SBFileStreamerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607C7F8F2127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamerUITests" */;
+			buildPhases = (
+				607C7F7C2127EE9E00AAE520 /* Sources */,
+				607C7F7D2127EE9E00AAE520 /* Frameworks */,
+				607C7F7E2127EE9E00AAE520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607C7F822127EE9E00AAE520 /* PBXTargetDependency */,
+			);
+			name = SBFileStreamerUITests;
+			productName = SBFileStreamerUITests;
+			productReference = 607C7F802127EE9E00AAE520 /* SBFileStreamerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607C7F552127EE9D00AAE520 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = nanhu;
+				TargetAttributes = {
+					607C7F5C2127EE9D00AAE520 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					607C7F742127EE9E00AAE520 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 607C7F5C2127EE9D00AAE520;
+					};
+					607C7F7F2127EE9E00AAE520 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 607C7F5C2127EE9D00AAE520;
+					};
+				};
+			};
+			buildConfigurationList = 607C7F582127EE9D00AAE520 /* Build configuration list for PBXProject "SBFileStreamer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 607C7F542127EE9D00AAE520;
+			productRefGroup = 607C7F5E2127EE9D00AAE520 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607C7F5C2127EE9D00AAE520 /* SBFileStreamer */,
+				607C7F742127EE9E00AAE520 /* SBFileStreamerTests */,
+				607C7F7F2127EE9E00AAE520 /* SBFileStreamerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607C7F5B2127EE9D00AAE520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607C7F6D2127EE9E00AAE520 /* LaunchScreen.storyboard in Resources */,
+				607C7F6A2127EE9E00AAE520 /* Assets.xcassets in Resources */,
+				607C7F682127EE9D00AAE520 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F732127EE9E00AAE520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F7E2127EE9E00AAE520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B58586A5039C7CBCA310436 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SBFileStreamer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607C7F592127EE9D00AAE520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607C7F652127EE9D00AAE520 /* ViewController.m in Sources */,
+				607C7F702127EE9E00AAE520 /* main.m in Sources */,
+				60CCF944212AE27900396951 /* SBFileStreamer.m in Sources */,
+				607C7F622127EE9D00AAE520 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F712127EE9E00AAE520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607C7F7A2127EE9E00AAE520 /* SBFileStreamerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607C7F7C2127EE9E00AAE520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607C7F852127EE9E00AAE520 /* SBFileStreamerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607C7F772127EE9E00AAE520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607C7F5C2127EE9D00AAE520 /* SBFileStreamer */;
+			targetProxy = 607C7F762127EE9E00AAE520 /* PBXContainerItemProxy */;
+		};
+		607C7F822127EE9E00AAE520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607C7F5C2127EE9D00AAE520 /* SBFileStreamer */;
+			targetProxy = 607C7F812127EE9E00AAE520 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		607C7F662127EE9D00AAE520 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607C7F672127EE9D00AAE520 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		607C7F6B2127EE9E00AAE520 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607C7F6C2127EE9E00AAE520 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607C7F872127EE9E00AAE520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		607C7F882127EE9E00AAE520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607C7F8A2127EE9E00AAE520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5951F14A38E47AA49B94B4ED /* Pods-SBFileStreamer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		607C7F8B2127EE9E00AAE520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0EB936B219673AF749D7CDD /* Pods-SBFileStreamer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		607C7F8D2127EE9E00AAE520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SBFileStreamer.app/SBFileStreamer";
+			};
+			name = Debug;
+		};
+		607C7F8E2127EE9E00AAE520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SBFileStreamer.app/SBFileStreamer";
+			};
+			name = Release;
+		};
+		607C7F902127EE9E00AAE520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SBFileStreamer;
+			};
+			name = Debug;
+		};
+		607C7F912127EE9E00AAE520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8K6A7692X;
+				INFOPLIST_FILE = SBFileStreamerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBFileStreamerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SBFileStreamer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607C7F582127EE9D00AAE520 /* Build configuration list for PBXProject "SBFileStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607C7F872127EE9E00AAE520 /* Debug */,
+				607C7F882127EE9E00AAE520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607C7F892127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607C7F8A2127EE9E00AAE520 /* Debug */,
+				607C7F8B2127EE9E00AAE520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607C7F8C2127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607C7F8D2127EE9E00AAE520 /* Debug */,
+				607C7F8E2127EE9E00AAE520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607C7F8F2127EE9E00AAE520 /* Build configuration list for PBXNativeTarget "SBFileStreamerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607C7F902127EE9E00AAE520 /* Debug */,
+				607C7F912127EE9E00AAE520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607C7F552127EE9D00AAE520 /* Project object */;
+}
