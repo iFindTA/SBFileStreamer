@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBFileStreamer"
-  s.version      = "1.1.0"
+  s.version      = "1.2.0"
   s.summary      = "Basic file streamer for iOS development."
   s.description  = "Basic file streamer for Objc.Inc iOS Developers, such as ViewController/View etc."
 
@@ -22,5 +22,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "AFNetWorking"
-  s.dependency "WHC_ModelSqliteKit"
+  s.dependency 'AFNetworking'
+  s.dependency 'WHC_ModelSqliteKit'
+end
