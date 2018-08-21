@@ -50,11 +50,11 @@
 
 - (void)testDownload {
     
-    NSString *base = @"http://speedtest.tokyo.linode.com";
+    NSString *uri = @"http://speedtest.tokyo.linode.com/100MB-tokyo.bin";
     NSString *key = @"100MB-tokyo.bin";
     NSString *owner = @"nanhujiaju";
     
-    SBFile *file = [SBFile fileWithBaseUri:base with:key owner:owner type:SBFileTypeDownload];
+    SBFile *file = [SBFile fileWithUri:uri key:key storage:SBFileCloudQiNiu owner:owner];
     [[SBFileStreamer shared] append2Download:@[file]];
 }
 

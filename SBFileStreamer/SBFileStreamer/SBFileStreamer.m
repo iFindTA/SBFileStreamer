@@ -30,6 +30,7 @@
 @end
 static SBStreamConfigure *globalConfigure = nil;
 static SBFileStreamer *instance = nil;
+//static OSSClient *ossInstance = nil;
 @implementation SBFileStreamer
 + (void)configure:(SBStreamConfigure *)configure {
     globalConfigure = configure;
@@ -211,5 +212,26 @@ static SBFileStreamer *instance = nil;
     }
     return filters.copy;
 }
+
+#pragma mark --- OSS
+
+//- (OSSClient *)ossClient {
+//    NSAssert(globalConfigure != nil, @"forget to configure oss!");
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        NSString *endPt = globalConfigure.endPoint;
+//        NSString *authUri = globalConfigure.stsAuthUri;
+//        OSSAuthCredentialProvider *provider = [[OSSAuthCredentialProvider alloc] initWithAuthServerUrl:authUri];
+//        OSSClientConfiguration *cfg = [[OSSClientConfiguration alloc] init];
+//        cfg.maxRetryCount = 3;
+//        cfg.timeoutIntervalForRequest = 30;
+//        cfg.timeoutIntervalForResource = 60*3;//资源传输最长时间
+//        ossInstance = [[OSSClient alloc] initWithEndpoint:endPt credentialProvider:provider clientConfiguration:cfg];
+//    });
+//    return ossInstance;
+//}
+//- (NSString *)ossBucket {
+//    return globalConfigure.bucket;
+//}
 
 @end

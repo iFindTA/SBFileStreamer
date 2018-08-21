@@ -7,6 +7,7 @@
 //
 
 #import "SBFile.h"
+#import "SBFileStreamer.h"
 #import <AFNetworking/AFNetworking.h>
 
 #pragma mark -----> SBKit >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -54,6 +55,11 @@
 @property (nonatomic, strong) NSFileHandle *fileHandler;
 //@property (nonatomic, strong) AFURLSessionManager *manager;
 
+/**
+ 离线task
+ */
+@property (nonatomic, getter=fetchTask, nullable) NSURLSessionDataTask *task;
+
 @end
 
 @implementation SBFile
@@ -61,26 +67,28 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _type = SBFileTypeUpload;
         _state = SBFileStateIdle;
+        _cloud = SBFileCloudQiNiu;
+        _direction = SBFileDirectionDown;
         _progress = 0.f;
         _totalLength = 0;
     }
     return self;
 }
 
-+ (instancetype)fileWithBaseUri:(NSString *)uri with:(NSString *)key owner:(NSString *)uid type:(SBFileType)type {
++ (instancetype)fileWithUri:(NSString *)uri key:(NSString *)key storage:(SBFileCloud)from owner:(NSString *)uid {
     SBFile *file = [[SBFile alloc] init];
     file.key = key;
+    file.uri = uri;
     file.owner = uid;
-    file.type = type;
-    file.baseUri = uri;
+    file.cloud = from;
     return file;
 }
 
 + (NSArray *)whc_IgnorePropertys {
     return @[@"task",
              @"error",
+             @"ossTask",
              @"manager",
              @"progress",
              @"fileHandler",
@@ -89,6 +97,9 @@
              @"progressCallback"];
 }
 
++ (NSString *)whc_SqliteVersion {
+    return @"1.3";
+}
 
 #pragma mark --- getter
 //- (AFHTTPSessionManager *)manager {
@@ -150,13 +161,12 @@
 }
 - (NSURLSessionDataTask *)fetchTask {
     if (!_task) {
-        NSAssert(self.baseUri.length > 0 && self.key.length > 0, @"uri or key was nil!");
+        NSAssert(self.uri.length > 0 && self.key.length > 0, @"uri or key was nil!");
         //prepare exist size
         self.currentLength = [self fetchCachedSize];
         NSString *range = [NSString stringWithFormat:@"bytes=%zd-", self.currentLength];
         //assemble uri for obj
-        NSString *uri = [NSString stringWithFormat:@"%@/%@", self.baseUri, self.key];
-        NSURL *url = [NSURL URLWithString:uri];
+        NSURL *url = [NSURL URLWithString:self.uri];
         NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
         [req setValue:range forHTTPHeaderField:@"Range"];
         //set callback
@@ -234,5 +244,7 @@
 - (void)cancel {
     [self.task cancel];
 }
+
+#pragma mark --- OSS Logics
 
 @end

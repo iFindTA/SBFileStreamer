@@ -10,6 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import <WHC_ModelSqliteKit/WHC_ModelSqlite.h>
 
+/**
+ 文件传输状态
+ */
 typedef enum : NSUInteger {
     SBFileStateIdle                                 =   1   <<  0,  //等待
     SBFileStateInTransit                            =   1   <<  1,  //传输中（上行/下行）
@@ -17,11 +20,21 @@ typedef enum : NSUInteger {
     SBFileStateFailed                               =   1   <<  3,  //失败
     SBFileStatePause                                =   1   <<  4,  //暂停
 } SBFileState;
-
+/**
+ 文件传输状态远端存储类型
+ */
 typedef enum : NSUInteger {
-    SBFileTypeUpload                                =   1   <<  0,  //上传
-    SBFileTypeDownload                              =   1   <<  1,  //下载
-} SBFileType;
+    SBFileCloudQiNiu                                =   1   <<  0,  //七牛OSS
+    SBFileCloudAliYun                               =   1   <<  1,  //阿里云OSS
+} SBFileCloud;
+/**
+ 文件传输类型（上行/下行）
+ */
+typedef enum : NSUInteger {
+    SBFileDirectionUp                                =   1   <<  0,  //上行
+    SBFileDirectionDown                              =   1   <<  1,  //下行
+} SBFileDirection;
+
 
 /**
  file model
@@ -34,9 +47,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy, nonnull) NSString *key;
 
 /**
- 基地址 如七牛基地址
+ file uri 如七牛云存储的全路径
  */
-@property (nonatomic, copy, nonnull) NSString *baseUri;
+@property (nonatomic, copy, nonnull) NSString *uri;
 
 /**
  file 所属者
@@ -59,9 +72,14 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) SBFileState state;
 
 /**
+ file cloud type, default is qiniu
+ */
+@property (nonatomic, assign) SBFileCloud cloud;
+
+/**
  file type, default is upload
  */
-@property (nonatomic, assign) SBFileType type;
+@property (nonatomic, assign) SBFileDirection direction;
 
 /**
  file size
@@ -72,28 +90,26 @@ typedef enum : NSUInteger {
 /**
  传输进度回调（weak file obj）
  */
-@property (nonatomic, copy) void(^progressCallback)(SBFile *) NS_UNAVAILABLE;
+@property (nonatomic, copy) void(^_Nullable progressCallback)(SBFile *_Nonnull) NS_UNAVAILABLE;
 
 /**
  传输状态回调（weak file obj）
  */
-@property (nonatomic, copy) void(^stateCallback)(SBFile *);
+@property (nonatomic, copy) void(^_Nullable stateCallback)(SBFile *_Nonnull);
 
 //失败 or 成功
 @property (nonatomic, strong, nullable) NSError *error;
 
 /**
- 离线task
- */
-@property (nonatomic, getter=fetchTask) NSURLSessionDataTask *task;
+ instance method for create file-download!
 
-/**
- factory method
- 
- @param uid for diff user
- @return file object
+ @param uri for full-path
+ @param key for file obj
+ @param from for source type
+ @param uid for owner
+ @return the file
  */
-+ (instancetype)fileWithBaseUri:(NSString *)uri with:(NSString *)key owner:(NSString *)uid type:(SBFileType)type;
++ (instancetype _Nonnull)fileWithUri:(NSString *_Nonnull)uri key:(NSString *_Nonnull)key storage:(SBFileCloud)from owner:(NSString *_Nonnull)uid;
 
 /**
  fetch size for local-cached file

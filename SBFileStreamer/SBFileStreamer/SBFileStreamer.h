@@ -9,6 +9,8 @@
 #import "SBFile.h"
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SBStreamConfigure: NSObject
 #pragma mark --- configure for OSS
 
@@ -82,6 +84,19 @@
 /**
  获取下载队列中的任务列表
  */
-- (NSArray<SBFile*>* _Nullable)fetchDownloadTasks4Owner:(NSString *)uid;
-- (NSArray<SBFile*>* _Nullable)fetchDownloadTasks4:(SBFileState)state owner:(NSString *)uid;
+- (NSArray<SBFile*>* _Nullable)fetchDownloadTasks4Owner:(NSString *_Nonnull)uid;
+- (NSArray<SBFile*>* _Nullable)fetchDownloadTasks4:(SBFileState)state owner:(NSString *_Nonnull)uid;
+
+///**
+// oss client
+// */
+//- (OSSClient * _Nullable)ossClient;
+//
+///**
+// oss bucket name
+// */
+//- (NSString * _Nullable)ossBucket;
+
 @end
+
+NS_ASSUME_NONNULL_END
