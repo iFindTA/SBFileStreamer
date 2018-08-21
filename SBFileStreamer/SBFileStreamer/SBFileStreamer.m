@@ -6,237 +6,13 @@
 //  Copyright © 2018年 nanhu. All rights reserved.
 //
 
+#import "SBFile.h"
 #import "SBFileStreamer.h"
 
-#pragma mark -----> SBKit >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-@interface SBKit: NSObject
-@end
-@implementation SBKit
-+ (NSString *)sandbox {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-    NSString *documentPath = paths.firstObject;
-    return documentPath;
-}
-+ (NSString *)fetchDir4FileExtention:(NSString *)ext {
-    //默认
-    NSString *dir = @"files";
-    //video
-    NSArray <NSString*>*mimes = @[@"mp4", @"mov", @"avi"];
-    for (NSString *v in mimes) {
-        if ([v isEqualToString:ext]) {
-            dir = @"videos";
-            break;
-        }
-    }
-    //audio
-    mimes = @[@"mp3", @"wma", @"ogg", @"wav", @"aac"];
-    for (NSString *a in mimes) {
-        if ([a isEqualToString:ext]) {
-            dir = @"audios";
-            break;
-        }
-    }
-    //images
-    mimes = @[@"jpg", @"jpeg", @"png", @"gif", @"bmp", @"tiff", @"ai", @"cdr", @"eps"];
-    for (NSString *a in mimes) {
-        if ([a isEqualToString:ext]) {
-            dir = @"images";
-            break;
-        }
-    }
-    return dir;
-}
-@end
-#pragma mark -----> 对象模型 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-@interface SBFile()
-
-@property (nonatomic, strong) NSFileHandle *fileHandler;
-//@property (nonatomic, strong) AFURLSessionManager *manager;
+#pragma mark -----> 文件传输配置 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+@implementation SBStreamConfigure
 
 @end
-
-@implementation SBFile
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        _type = SBFileTypeUpload;
-        _state = SBFileStateIdle;
-        _progress = 0.f;
-        _totalLength = 0;
-    }
-    return self;
-}
-
-+ (instancetype)fileWithBaseUri:(NSString *)uri with:(NSString *)key owner:(NSString *)uid type:(SBFileType)type {
-    SBFile *file = [[SBFile alloc] init];
-    file.key = key;
-    file.owner = uid;
-    file.type = type;
-    file.baseUri = uri;
-    return file;
-}
-
-+ (NSArray *)whc_IgnorePropertys {
-    return @[@"task",
-             @"error",
-             @"manager",
-             @"progress",
-             @"fileHandler",
-             @"currentLength",
-             @"stateCallback",
-             @"progressCallback"];
-}
-
-
-#pragma mark --- getter
-//- (AFHTTPSessionManager *)manager {
-//    if (!_manager) {
-//        NSURLSessionConfiguration *cfg = [NSURLSessionConfiguration defaultSessionConfiguration];
-//        _manager = [AFHTTPSessionManager manager];
-//    }
-//    return _manager;
-//}
-- (AFHTTPSessionManager *)fetchManager {
-    return [AFHTTPSessionManager manager];
-}
-- (NSFileHandle *)fileHandler {
-    if (!_fileHandler) {
-        NSFileManager *m = [NSFileManager defaultManager];
-        if (![m fileExistsAtPath:self.destPath]) {
-            //如果没有下载文件的话，就创建一个文件。如果有下载文件的话，则不用重新创建(不然会覆盖掉之前的文件)
-            [m createFileAtPath:self.destPath contents:nil attributes:nil];
-        }
-        _fileHandler = [NSFileHandle fileHandleForWritingAtPath:self.destPath];
-    }
-    return _fileHandler;
-}
-- (NSString *)destPath {
-    if (!_destPath) {
-        NSAssert(self.key.length > 0, @"empty key!");
-        NSString *ext = [self.key pathExtension];
-        NSString *dir = [SBKit fetchDir4FileExtention:ext];
-        NSString *sandBox = [SBKit sandbox];
-        NSString *fullPath = [sandBox stringByAppendingPathComponent:dir];
-        if (self.owner.length > 0) {
-            fullPath = [fullPath stringByAppendingPathComponent:self.owner];
-        }
-        NSError *err;
-        NSFileManager *m = [NSFileManager defaultManager];
-        if (![m fileExistsAtPath:fullPath]) {
-            [m createDirectoryAtPath:fullPath withIntermediateDirectories:true attributes:nil error:&err];
-            if (err) {
-                NSLog(@"创建用户下载目录失败!------%@", err.description);
-            }
-        }
-        fullPath = [fullPath stringByAppendingPathComponent:self.key];
-        _destPath = fullPath.copy;
-        NSLog(@"assemble file dest full path:%@", fullPath);
-    }
-    return _destPath;
-}
-- (NSUInteger)fetchCachedSize {
-    NSUInteger size = 0;
-    NSFileManager *m = [NSFileManager defaultManager];
-    if ([m fileExistsAtPath:self.destPath]) {
-        NSError *err;
-        NSDictionary*attr = [m attributesOfItemAtPath:self.destPath error:&err];
-        if (!err && attr) {
-            size = [attr fileSize];
-        }
-    }
-    return size;
-}
-- (NSURLSessionDataTask *)fetchTask {
-    if (!_task) {
-        NSAssert(self.baseUri.length > 0 && self.key.length > 0, @"uri or key was nil!");
-        //prepare exist size
-        self.currentLength = [self fetchCachedSize];
-        NSString *range = [NSString stringWithFormat:@"bytes=%zd-", self.currentLength];
-        //assemble uri for obj
-        NSString *uri = [NSString stringWithFormat:@"%@/%@", self.baseUri, self.key];
-        NSURL *url = [NSURL URLWithString:uri];
-        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
-        [req setValue:range forHTTPHeaderField:@"Range"];
-        //set callback
-        
-        //AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:cfg];
-        __weak typeof (self) this = self;AFHTTPSessionManager *manager = [self fetchManager];
-        //completed callback
-        _task = [manager dataTaskWithRequest:req uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-            NSLog(@"download did completed!---error:%@", error.localizedDescription);
-            //close file handle
-            [this.fileHandler closeFile];
-            this.fileHandler = nil;
-            
-            //callback
-            this.error = error;
-            this.state = (error == nil) ? SBFileStateFinished : SBFileStateFailed;
-            if (this.stateCallback) {
-                this.stateCallback(this);
-            }
-        }];
-        //response callback
-        [manager setDataTaskDidReceiveResponseBlock:^NSURLSessionResponseDisposition(NSURLSession * _Nonnull session, NSURLSessionDataTask * _Nonnull dataTask, NSURLResponse * _Nonnull response) {
-            NSLog(@"download did response!");
-            //fetch total length
-            this.totalLength = response.expectedContentLength + this.currentLength;
-            NSLog(@"file total size:%zd", this.totalLength);
-            //callback
-            this.state = SBFileStateInTransit;
-            if (this.stateCallback) {
-                this.stateCallback(this);
-            }
-            return NSURLSessionResponseAllow;
-        }];
-        //did received data callback
-        [manager setDataTaskDidReceiveDataBlock:^(NSURLSession * _Nonnull session, NSURLSessionDataTask * _Nonnull dataTask, NSData * _Nonnull data) {
-            NSLog(@"download did received data....");
-            //write data to file end
-            [this.fileHandler seekToEndOfFile];
-            [this.fileHandler writeData:data];
-            //update current length and progress
-            this.currentLength += data.length;
-            CGFloat percent = 1.0 * this.currentLength / this.totalLength;
-            if (this.totalLength == 0) {
-                percent = 0.f;
-            }
-            this.progress = percent;
-            NSLog(@"percenter:%.2f", percent);
-            if (this.state != SBFileStateInTransit) {
-                this.state = SBFileStateInTransit;
-                if (this.stateCallback) {
-                    this.stateCallback(this);
-                }
-            }
-        }];
-    }
-    return _task;
-}
-
-/**
- 继续/暂停
- */
-- (void)resume:(BOOL)r {
-    self.state = r ? SBFileStateInTransit : SBFileStatePause;
-    if (self.stateCallback) {
-        __weak typeof (self) this = self;
-        self.stateCallback(this);
-    }
-    if (r) {
-        [self.task resume];
-    } else {
-        [self.task suspend];
-    }
-}
-
-- (void)cancel {
-    [self.task cancel];
-}
-
-@end
-
 #pragma mark -----> 文件传输 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 @interface SBFileStreamer()
@@ -252,10 +28,12 @@
 @property (nonatomic, assign) BOOL isDownStreaming;
 
 @end
-
+static SBStreamConfigure *globalConfigure = nil;
 static SBFileStreamer *instance = nil;
-
 @implementation SBFileStreamer
++ (void)configure:(SBStreamConfigure *)configure {
+    globalConfigure = configure;
+}
 + (instancetype)shared {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

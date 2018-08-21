@@ -17,6 +17,7 @@
 		607C7F7A2127EE9E00AAE520 /* SBFileStreamerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F792127EE9E00AAE520 /* SBFileStreamerTests.m */; };
 		607C7F852127EE9E00AAE520 /* SBFileStreamerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C7F842127EE9E00AAE520 /* SBFileStreamerUITests.m */; };
 		60CCF944212AE27900396951 /* SBFileStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCF943212AE27900396951 /* SBFileStreamer.m */; };
+		60CCF947212BC84300396951 /* SBFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCF946212BC84300396951 /* SBFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		607C7F862127EE9E00AAE520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60CCF942212AE27900396951 /* SBFileStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBFileStreamer.h; sourceTree = "<group>"; };
 		60CCF943212AE27900396951 /* SBFileStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFileStreamer.m; sourceTree = "<group>"; };
+		60CCF945212BC84300396951 /* SBFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBFile.h; sourceTree = "<group>"; };
+		60CCF946212BC84300396951 /* SBFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFile.m; sourceTree = "<group>"; };
 		A7AFC1645B01487C25585E32 /* libPods-SBFileStreamer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SBFileStreamer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0EB936B219673AF749D7CDD /* Pods-SBFileStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBFileStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SBFileStreamer/Pods-SBFileStreamer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +151,8 @@
 			children = (
 				60CCF942212AE27900396951 /* SBFileStreamer.h */,
 				60CCF943212AE27900396951 /* SBFileStreamer.m */,
+				60CCF945212BC84300396951 /* SBFile.h */,
+				60CCF946212BC84300396951 /* SBFile.m */,
 			);
 			path = SBFileStreamer;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 			files = (
 				607C7F652127EE9D00AAE520 /* ViewController.m in Sources */,
 				607C7F702127EE9E00AAE520 /* main.m in Sources */,
+				60CCF947212BC84300396951 /* SBFile.m in Sources */,
 				60CCF944212AE27900396951 /* SBFileStreamer.m in Sources */,
 				607C7F622127EE9D00AAE520 /* AppDelegate.m in Sources */,
 			);
