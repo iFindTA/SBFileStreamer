@@ -30,6 +30,14 @@
             break;
         }
     }
+    //lyrics
+    mimes = @[@"lrc", @"trc", @"krc", @"qrc", @"ksc", @"kaj"];
+    for (NSString *v in mimes) {
+        if ([v isEqualToString:ext]) {
+            dir = @"lyrics";
+            break;
+        }
+    }
     //audio
     mimes = @[@"mp3", @"wma", @"ogg", @"wav", @"aac"];
     for (NSString *a in mimes) {
@@ -130,9 +138,9 @@
         NSString *dir = [SBKit fetchDir4FileExtention:ext];
         NSString *sandBox = [SBKit sandbox];
         NSString *fullPath = [sandBox stringByAppendingPathComponent:dir];
-        if (self.owner.length > 0) {
-            fullPath = [fullPath stringByAppendingPathComponent:self.owner];
-        }
+//        if (self.owner.length > 0) {
+//            fullPath = [fullPath stringByAppendingPathComponent:self.owner];
+//        }
         NSError *err;
         NSFileManager *m = [NSFileManager defaultManager];
         if (![m fileExistsAtPath:fullPath]) {

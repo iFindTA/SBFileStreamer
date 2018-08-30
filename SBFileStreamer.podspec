@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBFileStreamer"
-  s.version      = "1.2.1"
+  s.version      = "1.3.0"
   s.summary      = "Basic file streamer for iOS development."
   s.description  = "Basic file streamer for Objc.Inc iOS Developers, such as ViewController/View etc."
 
