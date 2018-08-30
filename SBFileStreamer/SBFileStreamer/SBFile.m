@@ -110,15 +110,13 @@
 }
 
 #pragma mark --- getter
-//- (AFHTTPSessionManager *)manager {
-//    if (!_manager) {
-//        NSURLSessionConfiguration *cfg = [NSURLSessionConfiguration defaultSessionConfiguration];
-//        _manager = [AFHTTPSessionManager manager];
-//    }
-//    return _manager;
-//}
 - (AFHTTPSessionManager *)fetchManager {
-    return [AFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
+    [serializer setStringEncoding:NSUTF8StringEncoding];
+    manager.requestSerializer=serializer;
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    return manager;
 }
 - (NSFileHandle *)fileHandler {
     if (!_fileHandler) {
@@ -183,6 +181,7 @@
         __weak typeof (self) this = self;AFHTTPSessionManager *manager = [self fetchManager];
         //completed callback
         _task = [manager dataTaskWithRequest:req uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            
             NSLog(@"download did completed!---error:%@", error.localizedDescription);
             //close file handle
             [this.fileHandler closeFile];

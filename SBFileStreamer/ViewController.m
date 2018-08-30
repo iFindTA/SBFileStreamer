@@ -50,8 +50,12 @@
 
 - (void)testDownload {
     
-    NSString *uri = @"http://speedtest.tokyo.linode.com/100MB-tokyo.bin";
-    NSString *key = @"100MB-tokyo.bin";
+//    NSString *uri = @"http://speedtest.tokyo.linode.com/100MB-tokyo.bin";
+//    NSString *key = @"100MB-tokyo.bin";
+//    NSString *owner = @"nanhujiaju";
+    
+    NSString *uri = @"http://7xrm04.com2.z0.glb.qiniucdn.com/3bfe46c3621abf2bc89f50969a74c9a2.lrc";
+    NSString *key = @"3bfe46c3621abf2bc89f50969a74c9a2.lrc";
     NSString *owner = @"nanhujiaju";
     
     SBFile *file = [SBFile fileWithUri:uri key:key storage:SBFileCloudQiNiu owner:owner];
