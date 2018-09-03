@@ -88,14 +88,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSUInteger currentLength;
 
 /**
- 传输进度回调（weak file obj）
- */
-@property (nonatomic, copy) void(^_Nullable progressCallback)(SBFile *_Nonnull) NS_UNAVAILABLE;
-
-/**
  传输状态回调（weak file obj）
  */
-@property (nonatomic, copy) void(^_Nullable stateCallback)(SBFile *_Nonnull);
+@property (nonatomic, copy, nullable) void(^_Nullable callback)(void);
 
 //失败 or 成功
 @property (nonatomic, strong, nullable) NSError *error;

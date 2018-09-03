@@ -54,8 +54,8 @@
 //    NSString *key = @"100MB-tokyo.bin";
 //    NSString *owner = @"nanhujiaju";
     
-    NSString *uri = @"http://7xrm04.com2.z0.glb.qiniucdn.com/3bfe46c3621abf2bc89f50969a74c9a2.lrc";
-    NSString *key = @"3bfe46c3621abf2bc89f50969a74c9a2.lrc";
+    NSString *uri = @"http://7xrm04.com2.z0.glb.qiniucdn.com/http://qukufile2.qianqian.com/data2/lrc/19dd692032af6bd72460fdf3b4cfe624/598760621/598760621.lrc";
+    NSString *key = @"http://qukufile2.qianqian.com/data2/lrc/19dd692032af6bd72460fdf3b4cfe624/598760621/598760621.lrc";
     NSString *owner = @"nanhujiaju";
     
     SBFile *file = [SBFile fileWithUri:uri key:key storage:SBFileCloudQiNiu owner:owner];

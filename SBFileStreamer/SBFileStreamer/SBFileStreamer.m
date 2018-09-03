@@ -67,8 +67,12 @@ static SBFileStreamer *instance = nil;
     //callback
     for (SBFile *f in files) {
         __weak typeof (self) this = self;
-        f.stateCallback = ^(SBFile *f){
-            [this updateState:f];
+//        f.stateCallback = ^(SBFile *f){
+//            [this updateState:f];
+//        };
+        __weak typeof(SBFile)*wkFile = f;
+        f.callback = ^{
+            [this updateState:wkFile];
         };
         //存储
         NSString *sql = [NSString stringWithFormat:@"key = '%@' AND owner = '%@'", f.key, f.owner];
@@ -90,20 +94,22 @@ static SBFileStreamer *instance = nil;
     NSString *where = [NSString stringWithFormat:@"key = '%@' AND owner = '%@'", f.key, f.owner];
     [WHCSqlite update:[SBFile class] value:value where:where];
     
+    //是否继续下一个
+    SBFileState shouldState = (SBFileStateFinished | SBFileStateFailed | SBFileStatePause);
+    if (f.state & shouldState) {
+        [self next];
+    }
     //移除队列
     if (f.state & (SBFileStateFinished | SBFileStateFailed)) {
-        @synchronized(self.downloadQueues){
-            [self.downloadQueues enumerateObjectsUsingBlock:^(SBFile * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (obj.key == f.key) {
-                    [self.downloadQueues removeObject:obj];
-                    *stop = true;
-                }
-            }];
-        }
-        [self next];
-    } else if (f.state & SBFileStatePause) {
-        //暂定后继续下一个
-        [self next];
+//        @synchronized(self.downloadQueues){
+//            [self.downloadQueues enumerateObjectsUsingBlock:^(SBFile * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                if (obj.key == f.key) {
+//                    [self.downloadQueues removeObject:obj];
+//                    *stop = true;
+//                }
+//            }];
+//        }
+//        [self next];
     }
 }
 

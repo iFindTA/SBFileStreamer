@@ -99,10 +99,9 @@
              @"ossTask",
              @"manager",
              @"progress",
+             @"callback",
              @"fileHandler",
-             @"currentLength",
-             @"stateCallback",
-             @"progressCallback"];
+             @"currentLength"];
 }
 
 + (NSString *)whc_SqliteVersion {
@@ -190,8 +189,8 @@
             //callback
             this.error = error;
             this.state = (error == nil) ? SBFileStateFinished : SBFileStateFailed;
-            if (this.stateCallback) {
-                this.stateCallback(this);
+            if (this.callback) {
+                this.callback();
             }
         }];
         //response callback
@@ -202,8 +201,8 @@
             NSLog(@"file total size:%zd", this.totalLength);
             //callback
             this.state = SBFileStateInTransit;
-            if (this.stateCallback) {
-                this.stateCallback(this);
+            if (this.callback) {
+                this.callback();
             }
             return NSURLSessionResponseAllow;
         }];
@@ -223,8 +222,8 @@
             NSLog(@"percenter:%.2f", percent);
             if (this.state != SBFileStateInTransit) {
                 this.state = SBFileStateInTransit;
-                if (this.stateCallback) {
-                    this.stateCallback(this);
+                if (this.callback) {
+                    this.callback();
                 }
             }
         }];
@@ -237,9 +236,8 @@
  */
 - (void)resume:(BOOL)r {
     self.state = r ? SBFileStateInTransit : SBFileStatePause;
-    if (self.stateCallback) {
-        __weak typeof (self) this = self;
-        self.stateCallback(this);
+    if (self.callback) {
+        self.callback();
     }
     if (r) {
         [self.task resume];
